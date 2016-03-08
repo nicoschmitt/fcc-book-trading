@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Book Trading</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+  
+    <link rel="stylesheet" href="/css/app.css" />
+
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <script src="lib/angular-animate.min.js"></script>
+    <script src="lib/angular-strap.min.js"></script>
+    <script src="lib/angular-strap.tpl.min.js"></script>
+    <script src="lib/socket.io.js"></script>
+    <script src="lib/socket.min.js"></script>
+    
+    <script src='/app/app.js'></script>
+    <script src='/app/scripts/top-nav.js'></script>
+    <script src='/app/scripts/home.js'></script>
+
+  </head>
+  <body>
+    
+    <div class="container">
+      <top-nav></top-nav>
+    </div>
+
+    <div class="container">
+
+      <div class="jumbotron">
+        <div class="container-fluid" ng-view></div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

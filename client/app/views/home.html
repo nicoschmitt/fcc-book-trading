@@ -1,0 +1,28 @@
+
+<div class="row">
+    <div class="col-lg-9">
+        <div id="chart"></div>
+    </div>
+    <div class="col-lg-3">
+        <form ng-submit="vm.searchStock.length && vm.addSymbol()">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="add new symbol" name="q" ng-model="vm.searchStock">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Add</button>
+                </div>
+            </div>
+        </form>
+        <div>{{vm.message}}</div>
+        <div ng-show="vm.loading">
+            <i class="fa fa-cog fa-spin fa-3x"></i>
+        </div>
+        <ul class="stocks list-group" ng-show="vm.stocks.length">
+            <li class="list-group-item" ng-repeat="stock in vm.stocks">
+                {{stock._id}}
+                <button class="btn btn-xs btn-danger pull-right">
+                    <span class="glyphicon glyphicon-trash" ng-click="vm.delete(stock)"></span>
+                </button>    
+            </li>
+        </ul>
+    </div>
+</div>
