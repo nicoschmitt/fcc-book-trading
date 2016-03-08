@@ -2,34 +2,14 @@
     
     var app = angular.module('myApp');
   
-    app.controller('homeCtrl', ["$scope", '$http', "$location", "socket",
-        function ($scope, $http, $location, socket) {
+    app.controller('homeCtrl', ["$scope", '$http', "$location", "adalAuthenticationService",
+        function ($scope, $http, $location, adal) {
             var vm = this;
             
             vm.loading = true;
             vm.searchStock = "";
             vm.message = "";
             vm.stocks = [];
-            
-            var renderStocks = function(data) {
-                
-                var all = vm.stocks.map(s => s._id).join("+");
-                
-                $http.get("/api/stock/" + all).then(function(resp){
-                        
-                    new Highcharts.StockChart({
-                        chart: { renderTo: 'chart' },
-                        rangeSelector: { selected: 2 },
-                        series: resp.data
-                    });
-                        
-                }, handleError);
-            }
-            
-            $scope.$on('socket:stocks', function (ev, data) {
-                console.log("Stock update from socket");
-                vm.stocks = data;
-            });
             
             var handleError = function(resp) {
                 vm.loading = false;
@@ -63,14 +43,7 @@
                    
                 }, handleError);
             };
-            
-            $http.get("/api/stock").then(function(resp){
-                // success
-                vm.loading = false;
-                vm.stocks = resp.data;
-                renderStocks();
-                
-            }, handleError);
+
         }
     ]);
   

@@ -12,9 +12,18 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li data-match-route="/Home"><a href="#/Home">Home</a></li>
+        <li data-match-route="/My" ng-show="userInfo.isAuthenticated"><a href="#/My">My Polls</a></li>
+        <li data-match-route="/New" ng-show="userInfo.isAuthenticated"><a href="#/New">New Poll</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><p class="navbar-text">live</p></li>
+        <li><a class="btn btn-link" ng-hide="userInfo.isAuthenticated" ng-click="nav.login()">Login</a></li>
+        <li class="dropdown" ng-show="userInfo.isAuthenticated">
+          <a class="pointer" class="dropdown-toggle" bs-dropdown data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> {{nav.getUsername()}} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a class="pointer" href="#/Me">My Profile</a></li>
+            <li><a class="pointer" ng-click="nav.login()">Logout</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

@@ -5,7 +5,7 @@
     
     var getConfig = function(req, res) {
       res.json({ 
-          
+          adalAppId: process.env.MS_APP_ID
       });
     };
     

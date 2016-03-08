@@ -1,16 +1,9 @@
 /* global angular */
 (function() {
-  var app = angular.module('myApp', [ 'ngRoute', "ngAnimate", "mgcrea.ngStrap", "btford.socket-io" ]);
+  var app = angular.module('myApp', [ 'ngRoute', "AdalAngular", "ngAnimate", "mgcrea.ngStrap" ]);
   
-  app.factory("socket", ["socketFactory", function (socketFactory) {
-    console.log("socket factory");
-    var socket = socketFactory();
-    socket.forward('stocks');
-    return socket;
-  }]);
-  
-  app.config(['$routeProvider', 
-    function ($routeProvider) {
+  app.config(["adalAppId", '$routeProvider','$httpProvider', 'adalAuthenticationServiceProvider',
+    function (adalAppId, $routeProvider, $httpProvider, adalProvider) {
    
       $routeProvider.when("/Home", {
         templateUrl: "/app/views/home.html",
@@ -19,7 +12,13 @@
 
       }).otherwise({ redirectTo: "/Home" });
       
-  }]);
+      
+      adalProvider.init({
+        instance: 'https://login.microsoftonline.com/', 
+        tenant: 'common',
+        clientId: adalAppId
+        }, $httpProvider );
+    }]);
 
   fetchData().then(launchApplication);
 
@@ -27,7 +26,7 @@
     var initInjector = angular.injector(["ng"]);
     var $http = initInjector.get("$http");
     return $http.get("/api/config").then(function(resp){
-      //app.constant("adalAppId", resp.data.adalAppId);
+      app.constant("adalAppId", resp.data.adalAppId);
     });
   };
 
@@ -37,7 +36,4 @@
     });
   };
   
-  
-  var socket = io();
-
 }());
