@@ -1,0 +1,42 @@
+<div>
+    <h3>About me</h3>
+    
+    <div class="me row">
+        <div class="col-lg-6">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon glyphicon glyphicon-user" aria-hidden="true"></span>
+                <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1" readonly ng-model="vm.user.name">
+            </div>
+        </div>
+    </div>
+    <div class="me row">
+        <div class="col-lg-6">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">@</span>
+                <input type="text" class="form-control" placeholder="Email" aria-describedby="sizing-addon1" readonly ng-model="vm.user.email">
+            </div>
+        </div>
+    </div>
+    <div class="me row">
+        <div class="col-lg-6">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">country</span>
+                <input type="text" class="form-control" placeholder="country" aria-describedby="sizing-addon1" ng-model="vm.user.country">
+            </div>
+        </div>
+    </div>
+    <div class="me row">
+        <div class="col-lg-6">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">city</span>
+                <input type="text" class="form-control" placeholder="city" aria-describedby="sizing-addon1" ng-model="vm.user.city">
+            </div>
+        </div>
+    </div>
+    <div class="me row">
+        <div class="col-lg-6">
+            <button class="btn btn-default btn-primary btn-lg" ng-click="vm.update()">Update</button>
+            {{vm.message}}
+        </div>
+    </div>
+</div>

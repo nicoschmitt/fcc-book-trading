@@ -23,10 +23,12 @@ var AnonymousStrategy = require('passport-anonymous').Strategy;
 app.use(passport.initialize());
 passport.use(new AnonymousStrategy());
 passport.use(new OIDCBearerStrategy({
-  "identityMetadata": "https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration",
-  "audience": process.env.MS_APP_ID,
-  "validateIssuer": false,
+    "identityMetadata": "https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration",
+    "audience": process.env.MS_APP_ID,
+    "validateIssuer": false,
 }, function (token, done) {
+    console.login("auth");
+    console.log(token);
 	return done(null, token, null);
 }));
 

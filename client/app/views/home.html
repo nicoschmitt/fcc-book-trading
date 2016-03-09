@@ -1,5 +1,9 @@
+<div ng-hide="userInfo.isAuthenticated">
+    <h2>Please log in in order to trad books.<h2>
+</div>
 
-<div class="row">
+
+<div class="row" ng-show="userInfo.isAuthenticated">
     <div class="col-lg-9">
 
     </div>
