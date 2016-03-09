@@ -14,6 +14,14 @@
                 country: "", 
                 city: "" 
             };
+
+            $http.post("/api/user/", vm.user).then(function(resp){
+                // success
+                vm.loading = false;
+                vm.user = resp.data;
+                vm.user.email = vm.user._id;       
+                     
+            }, handleError);
             
             var handleError = function(resp) {
                 vm.loading = false;
@@ -22,7 +30,6 @@
             };
             
             vm.update = function() {
-                console.log(vm.user);
                 vm.loading = true;
                 $http.post("/api/user/" + vm.user.email, vm.user).then(function(resp){
                     // success
@@ -33,13 +40,6 @@
                 }, handleError);
             };
             
-            $http.post("/api/user/", vm.user).then(function(resp){
-                // success
-                vm.loading = false;
-                vm.user = resp.data;
-                vm.user.email = vm.user._id;       
-                     
-            }, handleError);
         }
     ]);
   
