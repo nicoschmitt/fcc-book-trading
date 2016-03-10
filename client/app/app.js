@@ -1,6 +1,6 @@
 /* global angular */
 (function() {
-    var app = angular.module('myApp', [ 'ngRoute', "AdalAngular", "ngAnimate", "mgcrea.ngStrap" ]);
+    var app = angular.module('myApp', [ 'ngRoute', "AdalAngular", "ngAnimate", "mgcrea.ngStrap", "ngMaterial" ]);
   
     app.config(["adalAppId", '$routeProvider','$httpProvider', 'adalAuthenticationServiceProvider',
         function (adalAppId, $routeProvider, $httpProvider, adalProvider) {
@@ -16,6 +16,12 @@
                 controllerAs: "vm",
                 requireADLogin: true
 
+            }).when("/Add", {
+                templateUrl: "/app/views/add-book.html",
+                controller: "addBookCtrl",
+                controllerAs: "vm",
+                requireADLogin: true
+                
             }).otherwise({ redirectTo: "/Home" });
         
             adalProvider.init({

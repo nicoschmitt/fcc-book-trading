@@ -18,14 +18,25 @@
     "angular-route": "^1.5.0",
     "angular-strap": "^2.3.7",
     "bootstrap": "^3.3.6",
-    "adal-angular-experimental": "adal-angular#2.0.0-experimental"
+    "adal-angular-experimental": "adal-angular#2.0.0-experimental",
+    "angular-material": "^1.0.6",
+    "angular-aria": "^1.5.0"
   },
   "overrides": {
     "adal-angular-experimental": {
-        "main": [
-            "./dist/adal.min.js",
-            "./dist/adal-angular.min.js"
-        ]
+      "main": [
+        "./dist/adal.min.js",
+        "./dist/adal-angular.min.js"
+      ]
+    },
+    "angular-material": {
+      "main": [
+        "angular-material.min.js",
+        "angular-material.min.css"
+      ]
+    },
+    "angular-aria": {
+        "main": "angular-aria.min.js"
     }
   }
 }

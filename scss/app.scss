@@ -36,14 +36,34 @@ body {
 
 .me {
     margin-top: 20px;
-}
+};
 
 .vcenter {
     display: inline-block;
     vertical-align: middle;
     float: none;
-}
+};
 
 .spin {
     margin-left: 20px;
+};
+
+.top-right {
+    float: right;
+    top: 15px;
+    right: 5px;
+    position: absolute;    
 }
+
+.book {
+    height: 180px;
+    
+    h3 {
+        color: $black;
+        text-align: center;
+    };
+    
+    img {
+        max-height: 100%;
+    };
+};

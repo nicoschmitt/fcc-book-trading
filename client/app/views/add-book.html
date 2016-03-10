@@ -1,0 +1,33 @@
+
+<div class="row">
+    <div class="col-lg-4">
+        <form name="booksearch" ng-submit="booksearch.$valid && vm.search()" novalidate>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for..." ng-model="vm.searchBook" required>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+        </form>
+        <div ng-show="vm.loading">
+            <i class="fa fa-cog fa-spin fa-5x"></i>
+        </div>
+        <div id="message">{{vm.message}}</div>
+    </div>
+</div>
+
+<div class="container">
+    <md-grid-list md-cols="6" md-row-height="200px" style="height: 400px;">
+        <md-grid-tile ng-repeat="book in vm.books">
+            <div class="book">
+                <img ng-src="{{book.thumbnail}}" />
+            </div>
+            <button class="btn btn-xs btn-success top-right">
+                <span class="glyphicon glyphicon-plus" ng-click="vm.add(book)"></span>
+            </button>
+            <md-grid-tile-footer>
+                <h3>{{book.title}}</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
+</div>
