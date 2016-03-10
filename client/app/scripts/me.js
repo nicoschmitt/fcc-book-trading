@@ -28,7 +28,7 @@
                     // success
                     vm.loading = false;
                     vm.user = resp.data;
-                    vm.user.email = vm.user._id;       
+                    vm.user.email = vm.user._id;
                         
                 }, handleError);
             };
@@ -37,7 +37,7 @@
                 // success
                 vm.loading = false;
                 vm.user = resp.data;
-                vm.user.email = vm.user._id;       
+                vm.user.email = vm.user._id;
                      
             }, handleError);
         }

@@ -3,7 +3,7 @@
     var express = require('express');
     var router = express.Router();
     
-    var controller = require('./stock.controller');
+    var controller = require('./book.controller');
   
     router.get('/', controller.list);
     router.get('/:stock', controller.getData);
