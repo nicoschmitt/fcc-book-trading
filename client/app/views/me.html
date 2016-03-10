@@ -34,8 +34,13 @@
         </div>
     </div>
     <div class="me row">
-        <div class="col-lg-6">
-            <button class="btn btn-default btn-primary btn-lg" ng-click="vm.update()">Update</button>
+        <div class="col-lg-6 vcenter">
+            <button class="btn btn-default btn-primary btn-lg vcenter" ng-hide="vm.loading" ng-click="vm.update()">Update</button>
+            <span ng-show="vm.loading"><i class="fa fa-cog fa-spin fa-3x vcenter spin"></i></span>
+        </div>
+    </div>
+    <div class="me row">
+        <div class="col-lg-6 vcenter">
             {{vm.message}}
         </div>
     </div>
