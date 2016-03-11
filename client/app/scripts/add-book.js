@@ -30,8 +30,8 @@
             };
             
             vm.add = function(book) {
-                console.log("Add book " + book.id);
-                $http.post("/api/book/" + book.id, book).then(function(resp){
+                console.log("Add book " + book.googleid);
+                $http.post("/api/book/" + book.googleid, book).then(function(resp){
                     $location.path("/Home");
                 }, handleError);
             };

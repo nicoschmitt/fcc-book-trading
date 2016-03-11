@@ -7,14 +7,34 @@
     <div ng-show="vm.loading">
         <i class="fa fa-cog fa-spin fa-5x"></i>
     </div>
-    <md-grid-list md-cols="6" md-row-height="200px" style="height: 400px;" ng-hide="vm.loading">
-        <md-grid-tile ng-repeat="book in vm.books">
-            <div class="book">
-                <img ng-src="{{book.thumbnail}}" />
-            </div>
-            <md-grid-tile-footer>
-                <h3>{{book.title}}</h3>
-            </md-grid-tile-footer>
-        </md-grid-tile>
-    </md-grid-list>
+    <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-hide="vm.loading">
+        <md-card class="book-card mybooks" ng-repeat="book in vm.books">
+            <img ng-src="{{book.thumbnail}}" class="md-card-image img-responsive bookimg" alt="{{book.title}}">
+            <md-card-content>
+                <p class="booktitle">{{book.title}}</p>
+            </md-card-content>
+        </md-card>
+    </div>
+    
+    <div ng-show="!vm.loading && vm.trades.length">
+        <h2>My books from others</h2>
+        <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-hide="vm.loading">
+            <md-card class="book-card" ng-repeat="book in vm.trades">
+                <md-card-title>
+                    <md-card-title-media>
+                        <div class="md-media-md card-media"><img ng-src="{{book.thumbnail}}" class="md-card-image img-responsive bookimg" alt="{{book.title}}"></div>
+                    </md-card-title-media>
+                    <md-card-title-text>
+                    <span class="booktitle md-subhead">{{book.title}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end end">
+                    <md-button class="md-fab md-mini md-primary">
+                        <i class="fa fa-download"></i>
+                        <md-tooltip md-direction="left">give back</md-tooltip>
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </div>
 </div>

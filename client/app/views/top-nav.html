@@ -14,6 +14,7 @@
         <li data-match-route="/Home"><a href="#/Home">Home</a></li>
         <li data-match-route="/Other" ng-show="userInfo.isAuthenticated"><a href="#/Other">Other books</a></li>
         <li data-match-route="/Add" ng-show="userInfo.isAuthenticated"><a href="#/Add">Add book</a></li>
+        <li data-match-route="/Trades" ng-show="userInfo.isAuthenticated"><a href="#/Trades">Trades</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a class="btn btn-link" ng-hide="userInfo.isAuthenticated" ng-click="nav.login()">Login</a></li>

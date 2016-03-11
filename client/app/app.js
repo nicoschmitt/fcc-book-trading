@@ -27,6 +27,12 @@
                 controller: "addBookCtrl",
                 controllerAs: "vm",
                 requireADLogin: true
+                                
+            }).when("/Trades", {
+                templateUrl: "/app/views/trades.html",
+                controller: "tradesCtrl",
+                controllerAs: "vm",
+                requireADLogin: true
                 
             }).otherwise({ redirectTo: "/Home" });
         

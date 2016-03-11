@@ -6,9 +6,16 @@
     var moment  = require("moment");
     
     module.exports.mybooks = function(req, res) {
-        Book.find({ owner: req.user.email }, function(err, books) {
+        Book.find({ $or: [{ owner: req.user.email }, { tradeTo: req.user.email }] }, function(err, books) {
            if (err) res.status(500).send(err);
-           else res.json(books);
+           else {
+               var data = { my: [], trades: [] };
+               books.forEach(b => {
+                  if (b.owner == req.user.email) data.my.push(b);
+                  else data.trades.push(b); 
+               });
+               res.json(data);
+           }
         });
     };
     
@@ -20,8 +27,9 @@
     };
     
     module.exports.create = function(req, res) {
+        console.log("Add book to library: " + req.params.book);
         var book = new Book({ 
-            googleid: req.params.book,
+            googleid: req.body.googleid,
             title: req.body.title,
             thumbnail: req.body.thumbnail,
             owner: req.user.email
