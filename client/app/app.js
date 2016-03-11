@@ -16,6 +16,12 @@
                 controllerAs: "vm",
                 requireADLogin: true
 
+            }).when("/Other", {
+                templateUrl: "/app/views/other-books.html",
+                controller: "otherBooksCtrl",
+                controllerAs: "vm",
+                requireADLogin: true
+                
             }).when("/Add", {
                 templateUrl: "/app/views/add-book.html",
                 controller: "addBookCtrl",

@@ -2,7 +2,7 @@
     
     var app = angular.module('myApp');
   
-    app.controller('homeCtrl', ["$scope", '$http', "$location", "adalAuthenticationService",
+    app.controller('otherBooksCtrl', ["$scope", '$http', "$location", "adalAuthenticationService",
         function ($scope, $http, $location, adal) {
             var vm = this;
             
@@ -17,7 +17,7 @@
             };
             
             if (adal.userInfo.isAuthenticated) {
-                $http.get("/api/book/my").then(function(resp) {
+                $http.get("/api/book/other").then(function(resp) {
                     vm.loading = false;
                     vm.books = resp.data;
                     

@@ -18,7 +18,8 @@
     "passport": "^0.3.2",
     "passport-anonymous": "^1.0.1",
     "passport-azure-ad": "^1.4.1",
-    "request": "^2.69.0"
+    "request": "^2.69.0",
+    "shortid": "^2.2.4"
   },
   "devDependencies": {
     "bower": "^1.7.7",

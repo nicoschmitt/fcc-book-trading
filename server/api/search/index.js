@@ -13,9 +13,9 @@
             } else {
                 res.json(results.map(b => {
                     return {
-                        id: b.id,
+                        googleid: b.id,
                         title: b.title,
-                        thumbnail: b.thumbnail || "https://books.google.fr/googlebooks/images/no_cover_thumb.gif"
+                        thumbnail: (b.thumbnail || "https://books.google.fr/googlebooks/images/no_cover_thumb.gif").replace(/^http\:/, "https\:")
                     };
                 }));
             }

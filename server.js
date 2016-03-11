@@ -27,8 +27,6 @@ passport.use(new OIDCBearerStrategy({
     "audience": process.env.MS_APP_ID,
     "validateIssuer": false,
 }, function (token, done) {
-    console.login("auth");
-    console.log(token);
 	return done(null, token, null);
 }));
 

@@ -1,16 +1,22 @@
 (function(){
     
     var mongoose = require('mongoose');
+    var shortid = require("shortid");
 
-    // var Stock = mongoose.model("Stock", new mongoose.Schema({ 
-    //     _id: {
-    //         type: String,
-    //         unique: true
-    //     },
-    //     title: String,
-    //     description: String
-    // }));
+    var Book = mongoose.model("Book", new mongoose.Schema({ 
+        _id: {
+            type: String,
+            unique: true,
+            'default': shortid.generate
+        },
+        googleid: String,
+        title: String,
+        thumbnail: String,
+        owner: String,
+        tradeOn: Date,
+        tradeTo: String
+    }));
         
-    // module.exports = Stock;
+    module.exports = Book;
     
 }());
