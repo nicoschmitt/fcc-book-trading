@@ -2,8 +2,8 @@
     
     var app = angular.module('myApp');
   
-    app.controller('addBookCtrl', ["$scope", '$http', "$location",
-        function ($scope, $http, $location) {
+    app.controller('addBookCtrl', ["$scope", '$http', 
+        function ($scope, $http) {
             var vm = this;
             
             vm.loading = false;

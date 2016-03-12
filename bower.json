@@ -21,7 +21,8 @@
     "angular-aria": "^1.5.0",
     "bootstrap-material-design": "^0.5.9",
     "jquery": "^2.2.1",
-    "snackbarjs": "^1.1.0"
+    "snackbarjs": "^1.1.0",
+    "moment": "^2.12.0"
   },
   "overrides": {
     "adal-angular-experimental": {
@@ -46,6 +47,9 @@
         "dist/css/ripples.min.css",
         "dist/js/ripples.min.js"
       ]
+    },
+    "moment": {
+        "main": "min/moment.min.js"
     }
   }
 }

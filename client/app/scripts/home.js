@@ -2,8 +2,8 @@
     
     var app = angular.module('myApp');
   
-    app.controller('homeCtrl', ["$scope", '$http', "$location", "adalAuthenticationService",
-        function ($scope, $http, $location, adal) {
+    app.controller('homeCtrl', ["$scope", '$http', "adalAuthenticationService",
+        function ($scope, $http, adal) {
             var vm = this;
             
             vm.loading = true;

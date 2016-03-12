@@ -10,6 +10,7 @@
             <p></p>
         </div>
     </div>
+    <h4 ng-hide="vm.books.length">No books in your library.</h4>
     <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-hide="vm.loading">
         <md-card class="mybooks-card" ng-repeat="book in vm.books">
             <img ng-src="{{book.thumbnail}}" class="md-card-image img-responsive bookimg" alt="{{book.title}}">

@@ -5,10 +5,10 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="lib/angular-material.min.css" />
     <link rel="stylesheet" href="lib/bootstrap-material-design.min.css">
     <link rel="stylesheet" href="lib/ripples.min.css">
@@ -28,6 +28,7 @@
     <script src="lib/adal.min.js"></script>
     <script src="lib/adal-angular.min.js"></script>
     <script src="lib/snackbar.min.js"></script>
+    <script src="lib/moment.min.js"></script>
     
     <script src='/app/app.js'></script>
     <script src='/app/scripts/top-nav.js'></script>
@@ -35,6 +36,7 @@
     <script src='/app/scripts/me.js'></script>
     <script src='/app/scripts/add-book.js'></script>
     <script src='/app/scripts/other-books.js'></script>
+    <script src='/app/scripts/trades.js'></script>
 
   </head>
   <body layout="column">
@@ -45,8 +47,8 @@
 
     <div class="container">
         <div class="jumbotron">
-            <md-content md-scroll-y layout="column" flex>
-                <div class="container-fluid" ng-view></div>
+            <md-content md-scroll-y layout="column" flex layout-fill>
+                <div layout-fill ng-view></div>
             <md-content>
         </div>
     </div>

@@ -1,6 +1,6 @@
 (function(){
     
-    var User    = require('./user.model');
+    var User = require('./user.model');
     
     module.exports.register = function(req, res) {
         console.log("Register " + req.body.email);

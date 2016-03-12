@@ -1,11 +1,59 @@
-<div ng-hide="userInfo.isAuthenticated">
-    <h2>Please log in in order to trad books.<h2>
-</div>
-
-<div ng-show="userInfo.isAuthenticated">
-    <h2>My Books</h2>
+<div>
+    <h2>Inbox</h2>
     <div ng-show="vm.loading">
         <i class="fa fa-cog fa-spin fa-5x"></i>
     </div>
-
+    <div class="alert alert-dismissible alert-danger" ng-show="vm.message.length">
+        <strong>Oh snap!</strong>
+        <p>{{vm.message}}</p>
+    </div>
+    <div ng-hide="vm.loading">
+        <div layout="row" layout-align="start" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" >
+            <h4 ng-hide="vm.inbox.length">No trade request to approve.</h4>
+            <md-card class="books-card" ng-repeat="request in vm.inbox">
+                <md-card-title>
+                    <md-card-title-media>
+                        <div class="md-media-md card-media"><img ng-src="{{request.book.thumbnail}}" class="md-card-image img-responsive bookimg" alt="{{book.title}}"></div>
+                    </md-card-title-media>
+                    <md-card-title-text>
+                    <div class="booktitle md-subhead">{{request.book.title}}</div>
+                    <div class="booktitle md-subhead">--</div>
+                    <div class="booktitle md-subhead">{{request.when}}</div>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end end">
+                    <md-button class="md-fab md-mini md-success" aria-label="approve" ng-click="vm.approve(request)">
+                        <i class="fa fa-thumbs-up"></i>
+                        <md-tooltip md-direction="top">approve</md-tooltip>
+                    </md-button>
+                    <md-button class="md-fab md-mini md-danger" aria-label="reject" ng-click="vm.reject(request)">
+                        <i class="fa fa-thumbs-down"></i>
+                        <md-tooltip md-direction="top">reject</md-tooltip>
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+        <h2>My requests</h2>
+        <div layout="row" layout-align="start" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-hide="vm.loading">
+            <h4 ng-hide="vm.requests.length">No outgoing trade request.</h4>
+            <md-card class="books-card" ng-repeat="request in vm.requests">
+                <md-card-title>
+                    <md-card-title-media>
+                        <div class="md-media-md card-media"><img ng-src="{{request.book.thumbnail}}" class="md-card-image img-responsive bookimg" alt="{{book.title}}"></div>
+                    </md-card-title-media>
+                    <md-card-title-text>
+                    <span class="booktitle md-subhead">{{request.book.title}}</span>
+                    <div class="booktitle md-subhead">--</div>
+                    <div class="booktitle md-subhead">{{request.when}}</div>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end end">
+                    <md-button class="md-danger md-fab md-mini" aria-label="give up" ng-click="vm.remove(request)">
+                        <i class="fa fa-trash"></i>
+                        <md-tooltip md-direction="left">give up</md-tooltip>
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </div>
 </div>

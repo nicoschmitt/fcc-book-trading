@@ -23,10 +23,14 @@
                 return viewLocation === $location.path();
             };
             
+            if (adal.userInfo.isAuthenticated) {
+                $http.post("/api/user/", adal.userInfo.profile);
+            }
+            
             $scope.$on("adal:loginSuccess", function() {
                 console.log("login");
                 console.log(adal.userInfo);
-                $http.post("/api/user/", adal.userInfo).then(function(resp){
+                $http.post("/api/user/", adal.userInfo.profile).then(function(resp){
                    // success
                    
                    
