@@ -7,19 +7,27 @@
     
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="lib/angular-material.min.css" />
+    <link rel="stylesheet" href="lib/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="lib/ripples.min.css">
+    <link rel="stylesheet" href="lib/snackbar.min.css">
   
     <link rel="stylesheet" href="/css/app.css" />
 
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-route.min.js"></script>
     <script src="lib/angular-animate.min.js"></script>
-    <script src="lib/angular-strap.min.js"></script>
-    <script src="lib/angular-strap.tpl.min.js"></script>
     <script src="lib/angular-aria.min.js"></script>
     <script src="lib/angular-material.min.js"></script>
+    <script src="lib/ripples.min.js"></script>
+    <script src="lib/material.min.js"></script>
     <script src="lib/adal.min.js"></script>
     <script src="lib/adal-angular.min.js"></script>
+    <script src="lib/snackbar.min.js"></script>
     
     <script src='/app/app.js'></script>
     <script src='/app/scripts/top-nav.js'></script>
@@ -29,17 +37,19 @@
     <script src='/app/scripts/other-books.js'></script>
 
   </head>
-  <body>
+  <body layout="column">
     
     <div class="container">
       <top-nav></top-nav>
     </div>
 
     <div class="container">
-      <div class="jumbotron">
-        <div class="container-fluid" ng-view></div>
-      </div>
+        <div class="jumbotron">
+            <md-content md-scroll-y layout="column" flex>
+                <div class="container-fluid" ng-view></div>
+            <md-content>
+        </div>
     </div>
-
+    
   </body>
 </html>

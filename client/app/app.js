@@ -1,6 +1,8 @@
 /* global angular */
 (function() {
-    var app = angular.module('myApp', [ 'ngRoute', "AdalAngular", "ngAnimate", "mgcrea.ngStrap", "ngMaterial" ]);
+    $.material.init();
+    
+    var app = angular.module('myApp', [ 'ngRoute', "AdalAngular", "ngMaterial" ]);
   
     app.config(["adalAppId", '$routeProvider','$httpProvider', 'adalAuthenticationServiceProvider',
         function (adalAppId, $routeProvider, $httpProvider, adalProvider) {

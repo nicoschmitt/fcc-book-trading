@@ -2,13 +2,16 @@
     <h2>Please log in in order to trad books.<h2>
 </div>
 
-<div ng-show="userInfo.isAuthenticated">
-    <h2>My Books</h2>
-    <div ng-show="vm.loading">
-        <i class="fa fa-cog fa-spin fa-5x"></i>
+<div layout="column" flex="grow" ng-show="userInfo.isAuthenticated">
+    <div layout="column">
+        <h2>My Books</h2>
+        <div flex="100" ng-show="vm.loading">
+            <i class="fa fa-cog fa-spin fa-5x"></i>
+            <p></p>
+        </div>
     </div>
     <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-hide="vm.loading">
-        <md-card class="book-card mybooks" ng-repeat="book in vm.books">
+        <md-card class="mybooks-card" ng-repeat="book in vm.books">
             <img ng-src="{{book.thumbnail}}" class="md-card-image img-responsive bookimg" alt="{{book.title}}">
             <md-card-content>
                 <p class="booktitle">{{book.title}}</p>
@@ -19,7 +22,7 @@
     <div ng-show="!vm.loading && vm.trades.length">
         <h2>My books from others</h2>
         <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-hide="vm.loading">
-            <md-card class="book-card" ng-repeat="book in vm.trades">
+            <md-card class="books-card" ng-repeat="book in vm.trades">
                 <md-card-title>
                     <md-card-title-media>
                         <div class="md-media-md card-media"><img ng-src="{{book.thumbnail}}" class="md-card-image img-responsive bookimg" alt="{{book.title}}"></div>

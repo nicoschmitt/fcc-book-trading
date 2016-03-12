@@ -11,13 +11,13 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li data-match-route="/Home"><a href="#/Home">Home</a></li>
-        <li data-match-route="/Other" ng-show="userInfo.isAuthenticated"><a href="#/Other">Other books</a></li>
-        <li data-match-route="/Add" ng-show="userInfo.isAuthenticated"><a href="#/Add">Add book</a></li>
-        <li data-match-route="/Trades" ng-show="userInfo.isAuthenticated"><a href="#/Trades">Trades</a></li>
+        <li ng-class="{ active: nav.isActive('/Home')}"><a href="#/Home">Home</a></li>
+        <li ng-class="{ active: nav.isActive('/Other')}"ng-show="userInfo.isAuthenticated"><a href="#/Other">Other books</a></li>
+        <li ng-class="{ active: nav.isActive('/Add')}" ng-show="userInfo.isAuthenticated"><a href="#/Add">Add book</a></li>
+        <li ng-class="{ active: nav.isActive('/Trades')}" ng-show="userInfo.isAuthenticated"><a href="#/Trades">Trades</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="btn btn-link" ng-hide="userInfo.isAuthenticated" ng-click="nav.login()">Login</a></li>
+        <li><a href="#" ng-hide="userInfo.isAuthenticated" ng-click="nav.login()">Login</a></li>
         <li class="dropdown" ng-show="userInfo.isAuthenticated">
           <a class="pointer" class="dropdown-toggle" bs-dropdown data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> {{nav.getUsername()}} <span class="caret"></span></a>
           <ul class="dropdown-menu">

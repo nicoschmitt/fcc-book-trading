@@ -2,8 +2,8 @@
     
     var app = angular.module('myApp');
   
-    app.controller('addBookCtrl', ["$scope", '$http', "$location", "adalAuthenticationService",
-        function ($scope, $http, $location, adal) {
+    app.controller('addBookCtrl', ["$scope", '$http', "$location",
+        function ($scope, $http, $location) {
             var vm = this;
             
             vm.loading = false;
@@ -32,7 +32,8 @@
             vm.add = function(book) {
                 console.log("Add book " + book.googleid);
                 $http.post("/api/book/" + book.googleid, book).then(function(resp){
-                    $location.path("/Home");
+                    $.snackbar({ content: "Book added." });
+                    
                 }, handleError);
             };
         }

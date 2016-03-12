@@ -1,9 +1,6 @@
 (function(){
     
     var Book    = require('./book.model');
-    var request = require("request");
-    var async   = require("async");
-    var moment  = require("moment");
     
     module.exports.mybooks = function(req, res) {
         Book.find({ $or: [{ owner: req.user.email }, { tradeTo: req.user.email }] }, function(err, books) {
@@ -28,13 +25,13 @@
     
     module.exports.create = function(req, res) {
         console.log("Add book to library: " + req.params.book);
-        var book = new Book({ 
+        var book = { 
             googleid: req.body.googleid,
             title: req.body.title,
             thumbnail: req.body.thumbnail,
             owner: req.user.email
-         });
-         book.save(function(err, doc) {
+         };
+         Book.findOneAndUpdate({ googleid: req.body.googleid, owner: book.owner }, book, { new: true, upsert: true, setDefaultsOnInsert: true}, function(err, doc) {
             if (err) {
                 res.status(500).send(err);
             } else {

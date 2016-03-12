@@ -16,6 +16,14 @@
                 console.log(resp.data);
             };
             
+            vm.askTrade = function(book) {
+                console.log("Ask for trade on " + book._id);
+                $http.post("/api/trade/" + book._id).then(function(resp) {
+                    $.snackbar({ content: "Request sent." });
+                    
+                }, handleError);
+            };
+            
             if (adal.userInfo.isAuthenticated) {
                 $http.get("/api/book/other").then(function(resp) {
                     vm.loading = false;

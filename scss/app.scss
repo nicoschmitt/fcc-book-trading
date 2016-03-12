@@ -1,37 +1,22 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
 $black: #333;
-$white: #ccc;
+$white: #eee;
 
 html {
-  background-color: $black;
+    background-color: $black;
 };
 
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-family: Open Sans;
-  background-color: $black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: $black;
 };
-
-.navbar {
-  margin-bottom: 20px;
-};
-
-.navbar-default .navbar-brand, .jumbotron {
-  color: $black;
-};
-
-.ng-dirty.ng-invalid {
-  border-color: red;
-}
 
 .pointer {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 #message {
-  margin-top: 30px;
+    margin-top: 30px;
 } 
 
 .me {
@@ -43,17 +28,6 @@ body {
     vertical-align: middle;
     float: none;
 };
-
-.spin {
-    margin-left: 20px;
-};
-
-.top-right {
-    float: right;
-    top: 15px;
-    right: 5px;
-    position: absolute;    
-}
 
 .book {
     height: 180px;
@@ -68,7 +42,7 @@ body {
     };
 };
 
-.book-card {
+.books-card {
     width: 300px;
     
     .bookimg {
@@ -82,6 +56,15 @@ body {
     }
 }
 
-.mybooks {
+.mybooks-card {
     width: 150px;
+        
+    .bookimg {
+        height: auto;
+        width: 130px;
+    };
+    
+    .booktitle {
+        font-size: 100%;
+    }
 }

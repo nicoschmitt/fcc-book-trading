@@ -1,23 +1,25 @@
 
 <div class="row">
-    <div class="col-lg-4">
-        <form name="booksearch" ng-submit="booksearch.$valid && vm.search()" novalidate>
+    <div class="col-lg-5">
+        <form name="booksearch" class="form-group" ng-submit="booksearch.$valid && vm.search()" novalidate>
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search for..." ng-model="vm.searchBook" required>
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
+                    <button class="btn btn-default btn-raised btn-primary" type="button">Go!</button>
                 </span>
             </div>
         </form>
         <div ng-show="vm.loading">
             <i class="fa fa-cog fa-spin fa-5x"></i>
         </div>
-        <div id="message">{{vm.message}}</div>
     </div>
+</div>
+<div>
+    <div id="message">{{vm.message}}</div>
 </div>
 
 <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-hide="vm.loading">
-    <md-card class="book-card" ng-repeat="book in vm.books">
+    <md-card class="books-card" ng-repeat="book in vm.books">
         <md-card-title>
             <md-card-title-media>
                 <div class="md-media-md card-media"><img ng-src="{{book.thumbnail}}" class="md-card-image img-responsive bookimg" alt="{{book.title}}"></div>

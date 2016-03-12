@@ -1,42 +1,42 @@
 <div>
     <h3>About me</h3>
     
-    <div class="me row">
+    <div class="me row form-group">
         <div class="col-lg-6">
             <div class="input-group input-group-lg">
                 <span class="input-group-addon glyphicon glyphicon-user" aria-hidden="true"></span>
-                <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1" readonly ng-model="vm.user.name">
+                <input type="text" class="form-control" placeholder="username" readonly ng-model="vm.user.name">
             </div>
         </div>
     </div>
-    <div class="me row">
+    <div class="me row form-group">
         <div class="col-lg-6">
             <div class="input-group input-group-lg">
                 <span class="input-group-addon">@</span>
-                <input type="text" class="form-control" placeholder="Email" aria-describedby="sizing-addon1" readonly ng-model="vm.user.email">
+                <input type="text" class="form-control" placeholder="email" readonly ng-model="vm.user.email">
             </div>
         </div>
     </div>
-    <div class="me row">
+    <div class="me row form-group">
         <div class="col-lg-6">
             <div class="input-group input-group-lg">
                 <span class="input-group-addon">country</span>
-                <input type="text" class="form-control" placeholder="country" aria-describedby="sizing-addon1" ng-model="vm.user.country">
+                <input type="text" class="form-control" placeholder="country" ng-model="vm.user.country">
+            </div>
+        </div>
+    </div>
+    <div class="me row form-group">
+        <div class="col-lg-6">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">city</span>
+                <input type="text" class="form-control" placeholder="city" ng-model="vm.user.city">
             </div>
         </div>
     </div>
     <div class="me row">
         <div class="col-lg-6">
-            <div class="input-group input-group-lg">
-                <span class="input-group-addon">city</span>
-                <input type="text" class="form-control" placeholder="city" aria-describedby="sizing-addon1" ng-model="vm.user.city">
-            </div>
-        </div>
-    </div>
-    <div class="me row">
-        <div class="col-lg-6 vcenter">
-            <button class="btn btn-default btn-primary btn-lg vcenter" ng-hide="vm.loading" ng-click="vm.update()">Update</button>
-            <span ng-show="vm.loading"><i class="fa fa-cog fa-spin fa-3x vcenter spin"></i></span>
+            <button class="btn btn-default btn-raised btn-primary btn-lg vcenter" ng-hide="vm.loading" ng-click="vm.update()">Update</button>
+            <span ng-show="vm.loading"><i class="fa fa-cog fa-spin fa-3x spin vcenter"></i></span>
         </div>
     </div>
     <div class="me row">

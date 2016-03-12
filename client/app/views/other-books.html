@@ -7,8 +7,12 @@
     <div ng-show="vm.loading">
         <i class="fa fa-cog fa-spin fa-5x"></i>
     </div>
+    <div class="alert alert-dismissible alert-danger" ng-show="vm.message.length">
+        <strong>Oh snap!</strong>
+        <p>{{vm.message}}</p>
+    </div>
     <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-hide="vm.loading">
-        <md-card class="book-card" ng-repeat="book in vm.books">
+        <md-card class="books-card" ng-repeat="book in vm.books">
             <md-card-title>
                  <md-card-title-media>
                     <div class="md-media-md card-media"><img ng-src="{{book.thumbnail}}" class="md-card-image img-responsive bookimg" alt="{{book.title}}"></div>
@@ -18,7 +22,7 @@
                 </md-card-title-text>
             </md-card-title>
             <md-card-actions layout="row" layout-align="end end">
-                <md-button class="md-fab md-mini md-primary" aria-label="ask for trade">
+                <md-button class="md-fab md-mini md-primary" aria-label="ask for trade" ng-click="vm.askTrade(book)">
                     <i class="fa fa-download"></i>
                     <md-tooltip md-direction="left">ask for trade</md-tooltip>
                 </md-button>

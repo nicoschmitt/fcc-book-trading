@@ -1,9 +1,6 @@
 (function(){
     
     var User    = require('./user.model');
-    var request = require("request");
-    var async   = require("async");
-    var moment  = require("moment");
     
     module.exports.register = function(req, res) {
         console.log("Register " + req.body.email);
