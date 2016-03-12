@@ -41,7 +41,15 @@
     };
     
     module.exports.update = function(req, res) {
-      res.json({});  
+        console.log(req.body.action + " on book " + req.params.book);
+        if (req.body.action == "giveback") {
+            Book.findByIdAndUpdate(req.params.book, { tradeOne: null, tradeTo: null }, function(err, doc) {
+                if (err)  return res.status(500).send(err);
+                else res.json(doc);
+            });
+        } else {
+            res.status(400).send("invalid request");
+        }
     };
 
 }());

@@ -11,6 +11,15 @@
             vm.books = [];
             vm.trades = [];
             
+            vm.giveBack = function(book) {
+                $http.put("/api/book/" + book._id, { action: "giveback" }).then(function(resp) {
+                    for(var i = vm.trades.length - 1; i >= 0; i--) {
+                        if (vm.trades[i]._id == book._id) vm.trades.splice(i, 1);
+                    }
+                    
+                }, handleError);
+            }
+            
             var handleError = function(resp) {
                 vm.loading = false;
                 vm.message = resp.data;
