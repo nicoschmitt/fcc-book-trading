@@ -1,6 +1,6 @@
 (function(){
     
-    var Book    = require('./book.model');
+    var Book = require('./book.model');
     
     module.exports.mybooks = function(req, res) {
         Book.find({ $or: [{ owner: req.user.email }, { tradeTo: req.user.email }] }, function(err, books) {

@@ -13,9 +13,11 @@
     <h4 ng-hide="vm.books.length">No books in your library.</h4>
     <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-hide="vm.loading">
         <md-card class="mybooks-card" ng-repeat="book in vm.books">
-            <img ng-src="{{book.thumbnail}}" class="md-card-image img-responsive bookimg" alt="{{book.title}}">
+            <img ng-src="{{book.thumbnail}}" class="md-card-image img-responsive bookimg" alt="{{book.title}}"
+                 ng-class="{ traded: book.tradeTo.length }"  />
             <md-card-content>
-                <p class="booktitle">{{book.title}}</p>
+                <div class="booktitle">{{book.title}}</div>
+                <div class="booktitle md-subhead" ng-show="book.tradeTo.length">traded {{book.when}}</div>
             </md-card-content>
         </md-card>
     </div>
@@ -26,10 +28,14 @@
             <md-card class="books-card" ng-repeat="book in vm.trades">
                 <md-card-title>
                     <md-card-title-media>
-                        <div class="md-media-md card-media"><img ng-src="{{book.thumbnail}}" class="md-card-image img-responsive bookimg" alt="{{book.title}}"></div>
+                        <div class="md-media-md card-media">
+                            <img ng-src="{{book.thumbnail}}" class="md-card-image img-responsive bookimg" alt="{{book.title}}" />
+                        </div>
                     </md-card-title-media>
                     <md-card-title-text>
                     <span class="booktitle md-subhead">{{book.title}}</span>
+                    <div class="booktitle md-subhead">--</div>
+                    <div class="booktitle md-subhead">{{book.when}}</div>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="end end">

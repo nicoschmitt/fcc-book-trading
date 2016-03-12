@@ -29,8 +29,8 @@
             if (adal.userInfo.isAuthenticated) {
                 $http.get("/api/book/my").then(function(resp) {
                     vm.loading = false;
-                    vm.books = resp.data.my;
-                    vm.trades = resp.data.trades;
+                    vm.books = resp.data.my.map(t => { t.when = moment(t.tradeOn).fromNow(); return t; })
+                    vm.trades = resp.data.trades.map(t => { t.when = moment(t.tradeOn).fromNow(); return t; })
                     
                 }, handleError);
             }
